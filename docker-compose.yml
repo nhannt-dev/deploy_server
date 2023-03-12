@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27107:27107
+    volumes:
+      - mongo_db:/data/db
+  
+  api:
+    build: .
+    ports:
+      - 5000:5000
+      - 5001:5001
+    volumes:
+      - .:/server
+    environment:
+      PORT: 5000
+      DB_URI: mongodb+srv://admin:Nguyennhan4720@cluster0.zxoeo.mongodb.net/fPhone?retryWrites=true&w=majority
+      JWT_SECRET: nhannt-dev
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}

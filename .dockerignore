@@ -1,0 +1,8 @@
+./node_modules
+Dockerfile
+docker-compose.yml
+.dockerignore
+API.DEV.txt
+API.PROD.txt
+vercel.json
+.env

@@ -1,0 +1,134 @@
+Check port trên máy tính để tránh crash CMD(Admin) -> nhập netstat -ano | find “5001” | find "LISTENING"
+
+[POST]  localhost:5001/api/auth/verify
+{
+    "email":"nhan.nguyentrong.dev@gmail.com"
+}
+------------------------------------------------------------------------
+[POST]  localhost:5001/api/auth/register
+{
+    "verifyCode": "Lấy trong mail",
+    "firstname": "Nguyễn Trọng",
+    "lastname": "Nhân",
+    "email": "nguyentrongnhan04072000@gmail.com",
+    "mobile": "0356035628",
+    "password": "1234567890",
+    "confirmPassword": "1234567890",
+    "address": "Đường số 3, cư xá Lữ Gia, phường 15, quận 11, HCMC"
+}
+------------------------------------------------------------------------
+[POST]  localhost:5001/api/auth/login
+{
+    "email":"nguyentrongnhan04072000@gmail.com",
+    "password":"0123456789"
+}
+------------------------------------------------------------------------
+[POST]  localhost:5001/api/auth/admin-login
+{
+    "email":"nhan.nguyentrong.dev@gmail.com",
+    "password":"1234567890"
+}
+------------------------------------------------------------------------
+[GET]  localhost:5001/api/auth/logout
+------------------------------------------------------------------------
+[PUT]  localhost:5001/api/auth
+{
+    "firstname": "Nguyễn Trọng",
+    "lastname": "Nhân 2",
+    "mobile": "0356035625",
+    "address": "Đường số 3, cư xá Lữ Gia, phường 15, quận 11, HCMC"
+}
+------------------------------------------------------------------------
+[GET]  localhost:5001/api/auth
+------------------------------------------------------------------------
+[PUT]  localhost:5001/api/auth/role/:id
+{
+    "role": "Admin"
+}
+------------------------------------------------------------------------
+[PUT]  localhost:5001/api/auth/password
+{
+    "oldPassword": "1234567890",
+    "newPassword": "0987654321",
+    "confirmPassword": "0987654321"
+}
+------------------------------------------------------------------------
+[DELETE]  localhost:5001/api/auth/:id
+------------------------------------------------------------------------
+[POST]  localhost:5001/api/auth/forgot-password
+{
+    "email": "nguyentrongnhan04072000@gmail.com"
+}
+------------------------------------------------------------------------
+[POST]  localhost:5001/api/auth/reset-password
+{
+    "verifyCode": "Lấy trong mail",
+    "email": "nguyentrongnhan04072000@gmail.com",
+    "newPassword": "95147536",
+    "confirmPassword": "95147536"
+}
+------------------------------------------------------------------------
+[GET]  localhost:5001/api/auth/users
+------------------------------------------------------------------------
+[POST]  localhost:5001/api/product
+{
+    "title": "iPhone 14 Pro Max 128GB",
+    "description": "iPhone 14 Pro Max là mẫu flagship nổi bật nhất của Apple trong lần trở lại năm 2022 với nhiều cải tiến về công nghệ cũng như vẻ ngoài cao cấp, sang chảnh hợp với gu thẩm mỹ đại chúng. Những chiếc điện thoại đến từ nhà Táo Khuyết nhận được rất nhiều sự kỳ vọng của thị trường ngay từ khi chưa ra mắt. Vậy liệu những chiếc flagship đến từ công ty công nghệ hàng đầu thế giới này có làm bạn thất vọng? Cùng khám phá những điều thú vị về iPhone 14 Pro Max ở bài viết dưới đây nhé.",
+    "brand": "Apple",
+    "category": "Điện thoại",
+    "specification": {
+        "screen_size": "6.67 inches",
+        "screen_tech": "OLED",
+        "rear_camera": "108MP + 8MP + 2MP",
+        "front_camera": "20MP",
+        "chipset": "MediaTek Dimensity 8100 Ultra",
+        "ram_capacity": "8GB",
+        "memory": "128GB",
+        "battery": "5000mAh",
+        "sim": "2 SIM (Nano-SIM)",
+        "charger": "Sạc không dây",
+        "os": "Android 12, MIUI 13",
+        "network": "5G",
+        "wifi": "Wi-Fi 802.11 a/b/g/n/ac/6e, dual-band, Wi-Fi Direct, hotspot",
+        "bluetooth": "5.3, A2DP, LE",
+        "gps": "A-GPS (GLONASS (1), BDS (3), GALILEO (2), QZSS (2), NavIC)",
+        "extension": "Cảm biến vân tay trong màn hình"
+    },
+    "variant": [
+        {
+            "color": "red"
+        },
+        {
+            "color": "yellow"
+        },
+        {
+            "color": "blue"
+        },
+        {
+            "color": "purple"
+        }
+    ],
+    "price": 2000,
+    "stock": 20   
+}
+------------------------------------------------------------------------
+[GET]  localhost:5001/api/product
+------------------------------------------------------------------------
+[GET]  localhost:5001/api/product/:id
+------------------------------------------------------------------------
+[PUT]  localhost:5001/api/product/:id
+Note: Có thể sửa 1 hoặc nhiều trường đều được
+{
+    "category": "Laptop"
+}
+------------------------------------------------------------------------
+[DELETE]  localhost:5001/api/product/:id
+------------------------------------------------------------------------
+[PUT]  localhost:5001/api/product/ratings/:id
+{
+    "star": 3,
+    "comment": "nhannt-review"
+}
+------------------------------------------------------------------------
+[PUT]  localhost:5001/api/product/upload/:id
+Dùng formData trên tool tạo fields gửi tối đa 3 tấm ảnh dưới dạng file thôi nhé. Đồng thời có thể gửi bổ sung ảnh luôn nhé.
